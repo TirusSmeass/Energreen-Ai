@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -162,6 +163,36 @@
         .profit-badge.untung { background: rgba(0, 184, 148, 0.15); color: var(--primary); }
         .profit-badge.rugi { background: rgba(225, 112, 85, 0.15); color: #e17055; }
 
+        /* ========== STATUS INVESTASI ========== */
+        .status-investasi {
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-left: 5px solid;
+        }
+        .status-investasi .icon { font-size: 1.5rem; }
+        .status-investasi .detail { font-size: 0.75rem; font-weight: 400; opacity: 0.8; margin-top: 2px; }
+        .status-investasi.sangat-layak {
+            background: rgba(0, 184, 148, 0.10);
+            border-color: #00b894;
+            color: #00b894;
+        }
+        .status-investasi.layak {
+            background: rgba(253, 203, 110, 0.12);
+            border-color: #fdcb6e;
+            color: #b7950b;
+        }
+        .status-investasi.tidak-layak {
+            background: rgba(225, 112, 85, 0.10);
+            border-color: #e17055;
+            color: #e17055;
+        }
+
         /* ========== NAVBAR ========== */
         .navbar {
             position: fixed;
@@ -267,7 +298,7 @@
             transition: all var(--transition);
         }
 
-        /* ========== HERO DENGAN BACKGROUND IMAGE LOKAL ========== */
+        /* ========== HERO ========== */
         .hero {
             padding: 140px 0 80px;
             position: relative;
@@ -276,19 +307,15 @@
             display: flex;
             align-items: center;
         }
-
-        /* ===== BACKGROUND IMAGE DARI FOLDER /images/ ===== */
         .hero-bg {
             position: absolute;
             inset: 0;
             z-index: 0;
-            background-image: url('bgheader.jpg');
+            background-image: url('/images/bgheader.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
-
-        /* OVERLAY GRADIENT REDUP AGAR TEKS TERBACA */
         .hero-overlay {
             position: absolute;
             inset: 0;
@@ -300,8 +327,6 @@
                 rgba(0, 60, 60, 0.40) 100%
             );
         }
-
-        /* DECORATIVE PATTERN OVERLAY */
         .hero-pattern {
             position: absolute;
             inset: 0;
@@ -312,7 +337,6 @@
                 radial-gradient(circle at 50% 50%, rgba(9, 132, 227, 0.04) 0%, transparent 60%);
             pointer-events: none;
         }
-
         .hero .container {
             position: relative;
             z-index: 2;
@@ -320,7 +344,6 @@
             max-width: 900px;
             margin: 0 auto;
         }
-
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -336,7 +359,6 @@
             color: rgba(255, 255, 255, 0.9);
         }
         .hero-badge i { color: var(--primary-light); }
-
         .hero .tagline {
             font-size: 1.1rem;
             font-weight: 600;
@@ -345,7 +367,6 @@
             letter-spacing: 1px;
             text-shadow: 0 2px 20px rgba(0,0,0,0.4);
         }
-
         .hero h1 {
             font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 900;
@@ -358,7 +379,6 @@
             color: var(--primary-light);
             text-shadow: 0 0 40px rgba(85, 239, 196, 0.2);
         }
-
         .hero p {
             font-size: 1.05rem;
             opacity: 0.92;
@@ -368,7 +388,6 @@
             color: rgba(255, 255, 255, 0.9);
             text-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
-
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -392,7 +411,6 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* FLOATING DECORATIVE ELEMENTS */
         .float-element {
             position: absolute;
             border-radius: 50%;
@@ -684,7 +702,7 @@
         /* ========== DEMO CARD ========== */
         .demo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
             gap: 24px;
             margin-top: 20px;
         }
@@ -991,6 +1009,7 @@
             .result-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .profit-grid { grid-template-columns: 1fr 1fr; }
+            .demo-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
             .nav-links {
@@ -1036,6 +1055,7 @@
             .partner-grid { grid-template-columns: 1fr; }
             .mahasiswa-grid { grid-template-columns: 1fr; }
             .profit-grid { grid-template-columns: 1fr; }
+            .demo-grid { grid-template-columns: 1fr; }
             .form-card { padding: 18px; }
             .score-card { padding: 18px; }
             .insight-card { padding: 18px; }
@@ -1070,12 +1090,10 @@
         <div class="modal-card">
             <div class="modal-title">📋 Request Pendampingan</div>
             <div class="modal-subtitle" id="modalSubtitle">Isi data untuk meminta pendampingan dari mahasiswa</div>
-
             <div class="form-group">
                 <label>Nama UMKM <span class="required">*</span></label>
                 <input type="text" id="reqNama" value="Warung Makan Bahari" />
             </div>
-
             <div class="form-group">
                 <label>Jenis Pendampingan <span class="required">*</span></label>
                 <select id="reqJenis">
@@ -1086,17 +1104,14 @@
                     <option value="konsultasi">💬 Konsultasi Investasi</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label>Deskripsi Kebutuhan</label>
                 <textarea id="reqDeskripsi">Saya ingin beralih ke energi terbarukan untuk usaha kuliner saya. Butuh bantuan analisis dan rekomendasi.</textarea>
             </div>
-
             <div class="form-group">
                 <label>Kontak (WA/Email)</label>
                 <input type="text" id="reqKontak" value="0812-3456-7890" />
             </div>
-
             <div class="modal-actions">
                 <button class="btn-primary" id="submitRequestBtn"><i class="fas fa-paper-plane"></i> Kirim Request</button>
                 <button class="btn-secondary" id="closeModalBtn">Batal</button>
@@ -1130,39 +1145,19 @@
         </div>
     </nav>
 
-    <!-- ========== HERO DENGAN BACKGROUND IMAGE LOKAL ========== -->
+    <!-- ========== HERO ========== -->
     <section class="hero" id="home">
-        <!-- BACKGROUND IMAGE DARI bgheader.jpg -->
         <div class="hero-bg" id="heroBg"></div>
-        
-        <!-- OVERLAY GRADIENT REDUP -->
         <div class="hero-overlay"></div>
-        
-        <!-- DECORATIVE PATTERN -->
         <div class="hero-pattern"></div>
-        
-        <!-- FLOATING ELEMENTS -->
         <div class="float-element"></div>
         <div class="float-element"></div>
-
         <div class="container">
-            <div class="hero-badge">
-                <i class="fas fa-sparkles"></i>
-                5 Fitur AI untuk UMKM Kuliner
-            </div>
+            <div class="hero-badge"><i class="fas fa-sparkles"></i> 5 Fitur AI untuk UMKM Kuliner</div>
             <div class="tagline">"Smart Decision, Green Transition."</div>
-            <h1>
-                EnerGreen AI:<br />
-                <span class="highlight">5 Fitur Lengkap</span><br />
-                untuk Adopsi Energi Terbarukan
-            </h1>
-            <p>
-                Platform AI Agent berbasis mobile yang membantu UMKM kuliner 
-                mengambil keputusan adopsi energi terbarukan secara tepat.
-            </p>
-            <a href="#advisor" class="btn-primary">
-                <i class="fas fa-rocket"></i> Mulai Analisis Energi
-            </a>
+            <h1>EnerGreen AI:<br /><span class="highlight">5 Fitur Lengkap</span><br />untuk Adopsi Energi Terbarukan</h1>
+            <p>Platform AI Agent berbasis mobile yang membantu UMKM kuliner mengambil keputusan adopsi energi terbarukan secara tepat.</p>
+            <a href="#advisor" class="btn-primary"><i class="fas fa-rocket"></i> Mulai Analisis Energi</a>
             <div class="hero-stats">
                 <div><h3>500+</h3><p>UMKM Terbantu</p></div>
                 <div><h3>Rp 2.5M</h3><p>Rata-rata Keuntungan</p></div>
@@ -1191,12 +1186,10 @@
                 <div class="form-card glass-card">
                     <div class="form-title">📋 Profil Usaha</div>
                     <div class="form-subtitle">Isi data untuk analisis AI</div>
-
                     <div class="form-group">
                         <label>Nama UMKM <span class="required">*</span></label>
                         <input type="text" id="umkmName" value="Warung Makan Bahari" />
                     </div>
-
                     <div class="form-group">
                         <label>Jenis Usaha <span class="required">*</span></label>
                         <select id="businessType">
@@ -1207,7 +1200,6 @@
                             <option value="rumahan">🏠 Rumahan</option>
                         </select>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group">
                             <label>Lokasi</label>
@@ -1223,9 +1215,7 @@
                             </select>
                         </div>
                     </div>
-
                     <h4 style="margin:12px 0 8px; font-size:0.9rem;">⚡ Konsumsi Energi</h4>
-
                     <div class="form-row">
                         <div class="form-group">
                             <label>Tagihan Listrik/Bulan <span class="required">*</span></label>
@@ -1236,7 +1226,6 @@
                             <input type="number" id="electricPower" value="2200" />
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label>Jam Operasional / Hari</label>
                         <select id="operationalHours">
@@ -1247,7 +1236,6 @@
                             <option value="24">24 jam</option>
                         </select>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group">
                             <label>Jumlah Kulkas</label>
@@ -1258,7 +1246,6 @@
                             <input type="number" id="freezerCount" value="1" />
                         </div>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group">
                             <label>Oven</label>
@@ -1269,7 +1256,6 @@
                             <input type="number" id="coffeeMachine" value="1" />
                         </div>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group">
                             <label>Blender</label>
@@ -1280,9 +1266,7 @@
                             <input type="text" id="otherEquipment" value="Mixer, Display" />
                         </div>
                     </div>
-
                     <h4 style="margin:12px 0 8px; font-size:0.9rem;">🏠 Kondisi Bangunan</h4>
-
                     <div class="form-row">
                         <div class="form-group">
                             <label>Luas Atap (m²)</label>
@@ -1293,17 +1277,14 @@
                             <input type="number" id="buildingArea" value="100" />
                         </div>
                     </div>
-
                     <div class="form-group-check">
                         <input type="checkbox" id="sunExposure" checked />
                         <label for="sunExposure">Atap terkena sinar matahari langsung</label>
                     </div>
-
                     <div class="form-group-check">
                         <input type="checkbox" id="organicWaste" />
                         <label for="organicWaste">Menghasilkan limbah organik (sisa makanan)</label>
                     </div>
-
                     <div class="form-actions">
                         <button class="btn-primary" id="analyzeBtn" style="flex:1; justify-content:center;">
                             <i class="fas fa-brain"></i> Analisis & Hitung Keuntungan
@@ -1311,14 +1292,11 @@
                         <button type="reset" class="btn-secondary" onclick="document.querySelectorAll('.form-group input, .form-group select').forEach(el => el.value='');">Reset</button>
                     </div>
                 </div>
-
                 <div class="glass-card" style="align-self:start;">
                     <div style="text-align:center; padding:10px 0;">
                         <div style="font-size:3rem; margin-bottom:10px;">💰</div>
                         <h3 style="font-size:1rem; font-weight:700;">Keuntungan UMKM</h3>
-                        <p style="color:var(--text-muted); font-size:0.85rem; margin-top:6px; line-height:1.8;">
-                            AI akan menghitung investasi, penghematan, dan keuntungan jangka panjang.
-                        </p>
+                        <p style="color:var(--text-muted); font-size:0.85rem; margin-top:6px; line-height:1.8;">AI akan menghitung investasi, penghematan, dan keuntungan jangka panjang.</p>
                         <div style="margin-top:12px; padding:12px; background:rgba(0,184,148,0.06); border-radius:8px; text-align:left; font-size:0.8rem; color:var(--text-muted);">
                             <div style="display:flex; gap:8px; padding:3px 0;"><span>💰</span> Investasi awal</div>
                             <div style="display:flex; gap:8px; padding:3px 0;"><span>📉</span> Penghematan listrik</div>
@@ -1367,26 +1345,45 @@
         </div>
     </section>
 
-    <!-- ========== TAB 2: ROI CALCULATOR ========== -->
+    <!-- ========== TAB 2: SMART ROI CALCULATOR (DENGAN STATUS KELAYAKAN) ========== -->
     <section class="tab-content" id="tab-roi">
         <div class="container" style="padding:20px 0 40px;">
             <span class="section-badge"><i class="fas fa-calculator"></i> Smart ROI Calculator</span>
             <h2 class="section-title">Hitung <span>Kelayakan Investasi</span> Energi</h2>
-            <p class="section-desc">Masukkan biaya investasi dan penghematan untuk melihat ROI.</p>
+            <p class="section-desc">Masukkan data investasi untuk mengetahui kelayakan dan status rekomendasi.</p>
             <div class="demo-grid">
                 <div class="demo-card glass-card">
                     <div class="icon-box" style="background:var(--gradient-warm);"><i class="fas fa-calculator"></i></div>
-                    <span class="ai-badge">Rule-Based</span>
+                    <span class="ai-badge">Decision Support System</span>
                     <h4>Smart ROI Calculator</h4>
-                    <p class="subtitle">Hitung kelayakan investasi</p>
-                    <input type="number" class="demo-input" id="roiInvestment" placeholder="Biaya investasi (Rp)" value="85000000" />
-                    <input type="number" class="demo-input" id="roiSavings" placeholder="Penghematan/bulan (Rp)" value="1700000" />
-                    <button class="demo-btn" id="roiBtn"><i class="fas fa-calculator"></i> Hitung ROI</button>
+                    <p class="subtitle">Hitung kelayakan investasi + Status Rekomendasi</p>
+                    
+                    <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="number" class="demo-input" id="roiInvestment" placeholder="Biaya investasi (Rp)" value="85000000" style="flex:1; margin-bottom:0;" />
+                        <input type="number" class="demo-input" id="roiSavings" placeholder="Penghematan/bln (Rp)" value="1700000" style="flex:1; margin-bottom:0;" />
+                    </div>
+
+                    <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="number" class="demo-input" id="roiScore" placeholder="Green Score (0-100)" value="85" style="flex:1; margin-bottom:0;" />
+                        <select class="demo-input" id="roiEnergyType" style="flex:1; margin-bottom:0;">
+                            <option value="solar">☀️ PLTS Atap</option>
+                            <option value="biogas">🔥 Biogas</option>
+                            <option value="wind">💨 Angin</option>
+                        </select>
+                    </div>
+
+                    <button class="demo-btn" id="roiBtn"><i class="fas fa-calculator"></i> Hitung ROI & Status</button>
+
                     <div class="demo-output" id="roiOutput">
+                        <!-- STATUS INVESTASI -->
+                        <div id="roiStatusContainer"></div>
+
                         <div class="result-item"><span class="result-label">💰 Investasi</span><span class="result-value gold" id="roiInvest">Rp 85.000.000</span></div>
                         <div class="result-item"><span class="result-label">📉 Penghematan/th</span><span class="result-value green" id="roiSave">Rp 20.400.000</span></div>
                         <div class="result-item"><span class="result-label">⏱️ Payback Period</span><span class="result-value" id="roiPayback">4.2 Tahun</span></div>
                         <div class="result-item"><span class="result-label">📈 ROI 5 Tahun</span><span class="result-value gold" id="roiReturn">120%</span></div>
+                        <div class="result-item"><span class="result-label">🏆 Green Score</span><span class="result-value green" id="roiScoreDisplay">85/100</span></div>
+                        <div class="result-item"><span class="result-label">💡 Rekomendasi</span><span class="result-value" id="roiRecommendation">Sangat Layak</span></div>
                     </div>
                 </div>
             </div>
@@ -1439,7 +1436,6 @@
             <span class="section-badge" style="background:var(--gradient-purple);"><i class="fas fa-graduation-cap"></i> Kolaborasi</span>
             <h2 class="section-title"><span>Green Campus</span> Collaborative</h2>
             <p class="section-desc">Mahasiswa sebagai Green Energy Ambassador — pendamping transformasi energi UMKM.</p>
-
             <div style="margin-top:20px;">
                 <h4 style="font-weight:700; font-size:1rem;">📋 Alur Pendampingan</h4>
                 <div class="alur-flow">
@@ -1454,46 +1450,19 @@
                     <div class="alur-step" style="border-color:var(--accent);"><span class="step-icon">5️⃣</span><span class="step-label" style="color:var(--accent);">Pendampingan</span><span class="step-desc">Asesmen → Edukasi → Implementasi</span></div>
                 </div>
             </div>
-
             <h4 style="font-weight:700; font-size:1rem; margin-top:28px;">👨‍🎓 Green Energy Ambassador</h4>
             <div class="mahasiswa-grid" id="mahasiswaGrid"></div>
-
             <div style="margin-top:28px;">
                 <h4 style="font-weight:700; font-size:1rem;">📖 Peran Mahasiswa</h4>
                 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-top:12px;">
-                    <div class="glass-card" style="padding:16px; text-align:center;">
-                        <div style="font-size:2rem;">📋</div>
-                        <div style="font-weight:600; font-size:0.85rem;">Asesmen Kebutuhan</div>
-                        <div style="font-size:0.75rem; color:var(--text-muted);">Analisis energi UMKM</div>
-                    </div>
-                    <div class="glass-card" style="padding:16px; text-align:center;">
-                        <div style="font-size:2rem;">📱</div>
-                        <div style="font-weight:600; font-size:0.85rem;">Pendampingan Aplikasi</div>
-                        <div style="font-size:0.75rem; color:var(--text-muted);">Bantu gunakan EnerGreen AI</div>
-                    </div>
-                    <div class="glass-card" style="padding:16px; text-align:center;">
-                        <div style="font-size:2rem;">🎓</div>
-                        <div style="font-weight:600; font-size:0.85rem;">Edukasi Energi</div>
-                        <div style="font-size:0.75rem; color:var(--text-muted);">Sosialisasi energi terbarukan</div>
-                    </div>
-                    <div class="glass-card" style="padding:16px; text-align:center;">
-                        <div style="font-size:2rem;">🔗</div>
-                        <div style="font-weight:600; font-size:0.85rem;">Penghubung</div>
-                        <div style="font-size:0.75rem; color:var(--text-muted);">Hubungkan dengan vendor</div>
-                    </div>
-                    <div class="glass-card" style="padding:16px; text-align:center;">
-                        <div style="font-size:2rem;">📊</div>
-                        <div style="font-weight:600; font-size:0.85rem;">Monitoring</div>
-                        <div style="font-size:0.75rem; color:var(--text-muted);">Pantau implementasi</div>
-                    </div>
-                    <div class="glass-card" style="padding:16px; text-align:center; border-color:var(--accent);">
-                        <div style="font-size:2rem;">🏅</div>
-                        <div style="font-weight:600; font-size:0.85rem; color:var(--accent);">Sertifikasi</div>
-                        <div style="font-size:0.75rem; color:var(--text-muted);">Green Ambassador</div>
-                    </div>
+                    <div class="glass-card" style="padding:16px; text-align:center;"><div style="font-size:2rem;">📋</div><div style="font-weight:600; font-size:0.85rem;">Asesmen Kebutuhan</div><div style="font-size:0.75rem; color:var(--text-muted);">Analisis energi UMKM</div></div>
+                    <div class="glass-card" style="padding:16px; text-align:center;"><div style="font-size:2rem;">📱</div><div style="font-weight:600; font-size:0.85rem;">Pendampingan Aplikasi</div><div style="font-size:0.75rem; color:var(--text-muted);">Bantu gunakan EnerGreen AI</div></div>
+                    <div class="glass-card" style="padding:16px; text-align:center;"><div style="font-size:2rem;">🎓</div><div style="font-weight:600; font-size:0.85rem;">Edukasi Energi</div><div style="font-size:0.75rem; color:var(--text-muted);">Sosialisasi energi terbarukan</div></div>
+                    <div class="glass-card" style="padding:16px; text-align:center;"><div style="font-size:2rem;">🔗</div><div style="font-weight:600; font-size:0.85rem;">Penghubung</div><div style="font-size:0.75rem; color:var(--text-muted);">Hubungkan dengan vendor</div></div>
+                    <div class="glass-card" style="padding:16px; text-align:center;"><div style="font-size:2rem;">📊</div><div style="font-weight:600; font-size:0.85rem;">Monitoring</div><div style="font-size:0.75rem; color:var(--text-muted);">Pantau implementasi</div></div>
+                    <div class="glass-card" style="padding:16px; text-align:center; border-color:var(--accent);"><div style="font-size:2rem;">🏅</div><div style="font-weight:600; font-size:0.85rem; color:var(--accent);">Sertifikasi</div><div style="font-size:0.75rem; color:var(--text-muted);">Green Ambassador</div></div>
                 </div>
             </div>
-
             <div class="glass-card" style="margin-top:20px; background:rgba(108,92,231,0.05); border-color:var(--accent); text-align:center; padding:20px;">
                 <div style="font-size:2rem;">✅ GRATIS</div>
                 <div style="font-weight:700; font-size:1rem;">Program pendampingan dari kampus untuk masyarakat</div>
@@ -1566,114 +1535,31 @@
                 price: 'Rp 10-18 Jt/unit', link: '#' }
         ];
 
-        // =============================================
-        // 2. MAHASISWA DATA (DENGAN UMK & UNESA)
-        // =============================================
         const mahasiswaData = [
-            {
-                id: 1,
-                name: 'Ahmad Fauzi',
-                univ: 'Universitas Indonesia',
-                skills: ['PLTS', 'Analisis Energi', 'Edukasi'],
-                rating: 4.9,
-                totalMentoring: 12,
-                status: 'available',
-                avatar: '👨‍💻'
-            },
-            {
-                id: 2,
-                name: 'Siti Rahma',
-                univ: 'Institut Teknologi Bandung',
-                skills: ['Biogas', 'Lingkungan', 'Konsultasi'],
-                rating: 4.8,
-                totalMentoring: 9,
-                status: 'available',
-                avatar: '👩‍💻'
-            },
-            {
-                id: 3,
-                name: 'Budi Santoso',
-                univ: 'Universitas Gadjah Mada',
-                skills: ['Biomassa', 'IoT', 'Monitoring'],
-                rating: 4.7,
-                totalMentoring: 7,
-                status: 'busy',
-                avatar: '👨‍🔬'
-            },
-            {
-                id: 4,
-                name: 'Dewi Lestari',
-                univ: 'Universitas Brawijaya',
-                skills: ['PLTS', 'Pendampingan', 'Edukasi'],
-                rating: 4.9,
-                totalMentoring: 15,
-                status: 'available',
-                avatar: '👩‍🔬'
-            },
-            {
-                id: 5,
-                name: 'Rizky Hidayat',
-                univ: 'Universitas Diponegoro',
-                skills: ['Analisis Energi', 'ROI', 'Konsultasi'],
-                rating: 4.6,
-                totalMentoring: 5,
-                status: 'available',
-                avatar: '👨‍🏫'
-            },
-            {
-                id: 6,
-                name: 'Nina Kusuma',
-                univ: 'Universitas Padjadjaran',
-                skills: ['Biogas', 'Lingkungan', 'Monitoring'],
-                rating: 4.8,
-                totalMentoring: 8,
-                status: 'busy',
-                avatar: '👩‍🏫'
-            },
-            {
-                id: 7,
-                name: 'Muhammad Rizki',
-                univ: 'Universitas Muria Kudus',
-                skills: ['PLTS', 'Analisis Energi', 'Edukasi'],
-                rating: 4.7,
-                totalMentoring: 6,
-                status: 'available',
-                avatar: '👨‍🎓'
-            },
-            {
-                id: 8,
-                name: 'Nur Aini',
-                univ: 'Universitas Muria Kudus',
-                skills: ['Biogas', 'Lingkungan', 'Konsultasi'],
-                rating: 4.6,
-                totalMentoring: 4,
-                status: 'available',
-                avatar: '👩‍🎓'
-            },
-            {
-                id: 9,
-                name: 'Andi Wijaya',
-                univ: 'Universitas Negeri Surabaya',
-                skills: ['PLTS', 'IoT', 'Monitoring'],
-                rating: 4.8,
-                totalMentoring: 10,
-                status: 'available',
-                avatar: '👨‍🎓'
-            },
-            {
-                id: 10,
-                name: 'Rina Sari',
-                univ: 'Universitas Negeri Surabaya',
-                skills: ['Biomassa', 'Pendampingan', 'Edukasi'],
-                rating: 4.7,
-                totalMentoring: 7,
-                status: 'busy',
-                avatar: '👩‍🎓'
-            }
+            { id: 1, name: 'Ahmad Fauzi', univ: 'Universitas Indonesia', skills: ['PLTS', 'Analisis Energi', 'Edukasi'],
+                rating: 4.9, totalMentoring: 12, status: 'available', avatar: '👨‍💻' },
+            { id: 2, name: 'Siti Rahma', univ: 'Institut Teknologi Bandung', skills: ['Biogas', 'Lingkungan', 'Konsultasi'],
+                rating: 4.8, totalMentoring: 9, status: 'available', avatar: '👩‍💻' },
+            { id: 3, name: 'Budi Santoso', univ: 'Universitas Gadjah Mada', skills: ['Biomassa', 'IoT', 'Monitoring'],
+                rating: 4.7, totalMentoring: 7, status: 'busy', avatar: '👨‍🔬' },
+            { id: 4, name: 'Dewi Lestari', univ: 'Universitas Brawijaya', skills: ['PLTS', 'Pendampingan', 'Edukasi'],
+                rating: 4.9, totalMentoring: 15, status: 'available', avatar: '👩‍🔬' },
+            { id: 5, name: 'Rizky Hidayat', univ: 'Universitas Diponegoro', skills: ['Analisis Energi', 'ROI', 'Konsultasi'],
+                rating: 4.6, totalMentoring: 5, status: 'available', avatar: '👨‍🏫' },
+            { id: 6, name: 'Nina Kusuma', univ: 'Universitas Padjadjaran', skills: ['Biogas', 'Lingkungan', 'Monitoring'],
+                rating: 4.8, totalMentoring: 8, status: 'busy', avatar: '👩‍🏫' },
+            { id: 7, name: 'Muhammad Rizki', univ: 'Universitas Muria Kudus', skills: ['PLTS', 'Analisis Energi', 'Edukasi'],
+                rating: 4.7, totalMentoring: 6, status: 'available', avatar: '👨‍🎓' },
+            { id: 8, name: 'Nur Aini', univ: 'Universitas Muria Kudus', skills: ['Biogas', 'Lingkungan', 'Konsultasi'],
+                rating: 4.6, totalMentoring: 4, status: 'available', avatar: '👩‍🎓' },
+            { id: 9, name: 'Andi Wijaya', univ: 'Universitas Negeri Surabaya', skills: ['PLTS', 'IoT', 'Monitoring'],
+                rating: 4.8, totalMentoring: 10, status: 'available', avatar: '👨‍🎓' },
+            { id: 10, name: 'Rina Sari', univ: 'Universitas Negeri Surabaya', skills: ['Biomassa', 'Pendampingan', 'Edukasi'],
+                rating: 4.7, totalMentoring: 7, status: 'busy', avatar: '👩‍🎓' }
         ];
 
         // =============================================
-        // 3. THEME TOGGLE
+        // 2. THEME TOGGLE
         // =============================================
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
@@ -1695,13 +1581,12 @@
         }
 
         // =============================================
-        // 4. NAVBAR
+        // 3. NAVBAR
         // =============================================
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.pageYOffset > 50);
         });
-
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => {
@@ -1716,7 +1601,7 @@
         });
 
         // =============================================
-        // 5. TAB NAVIGATION
+        // 4. TAB NAVIGATION
         // =============================================
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1728,7 +1613,7 @@
         });
 
         // =============================================
-        // 6. TOAST
+        // 5. TOAST
         // =============================================
         function showToast(message) {
             const toast = document.getElementById('toast');
@@ -1739,14 +1624,13 @@
         }
 
         // =============================================
-        // 7. LOADING
+        // 6. LOADING
         // =============================================
         function showLoading() {
             const overlay = document.getElementById('loadingOverlay');
             overlay.classList.add('active');
             document.getElementById('loadingFill').style.width = '0%';
             document.getElementById('loadingStatus').textContent = '⏳ Memproses data usaha...';
-
             let progress = 0;
             const statuses = [
                 { p: 20, text: '📊 Menganalisis profil usaha...' },
@@ -1755,7 +1639,6 @@
                 { p: 80, text: '🧠 AI sedang mencocokkan rekomendasi...' },
                 { p: 100, text: '✅ Analisis selesai! Menampilkan hasil...' }
             ];
-
             return new Promise((resolve) => {
                 const interval = setInterval(() => {
                     progress += Math.random() * 3 + 1;
@@ -1774,7 +1657,7 @@
         }
 
         // =============================================
-        // 8. AI ANALYSIS
+        // 7. AI ANALYSIS
         // =============================================
         function analyzeBusiness(data) {
             const bill = parseFloat(data.bill) || 3000000;
@@ -1873,7 +1756,7 @@
         }
 
         // =============================================
-        // 9. DISPLAY RESULTS
+        // 8. DISPLAY RESULTS
         // =============================================
         function displayResults(result) {
             const scoreMap = {
@@ -1881,9 +1764,7 @@
                 biogas: { name: 'Biogas', icon: '🔥', desc: 'Energi dari limbah organik' },
                 biomass: { name: 'Biomassa', icon: '🌿', desc: 'Energi dari biomassa' }
             };
-
             const sorted = Object.entries(result.scores).sort((a, b) => b[1] - a[1]);
-
             document.getElementById('scoreList').innerHTML = sorted.map(([key, score]) => {
                 const data = scoreMap[key];
                 const isBest = key === result.best;
@@ -1904,7 +1785,6 @@
             }).join('');
 
             document.getElementById('aiInsight').innerHTML = result.insight;
-
             document.getElementById('eInvest').textContent = `Rp ${result.cost.toLocaleString()}`;
             document.getElementById('eHemat').textContent = `Rp ${result.monthlySavings.toLocaleString()}`;
             document.getElementById('ePayback').textContent = `${result.payback.toFixed(1)} tahun`;
@@ -1932,6 +1812,71 @@
         }
 
         // =============================================
+        // 9. SMART ROI CALCULATOR DENGAN STATUS KELAYAKAN
+        // =============================================
+        document.getElementById('roiBtn').addEventListener('click', () => {
+            const investment = parseFloat(document.getElementById('roiInvestment').value) || 85000000;
+            const savings = parseFloat(document.getElementById('roiSavings').value) || 1700000;
+            const score = parseFloat(document.getElementById('roiScore').value) || 85;
+            const energyType = document.getElementById('roiEnergyType').value;
+            const energy = energyDB[energyType] || energyDB.solar;
+
+            const yearlySavings = savings * 12;
+            const payback = investment / yearlySavings;
+            const roi5 = ((yearlySavings * 5 - investment) / investment) * 100;
+
+            // ===== STATUS KELAYAKAN INVESTASI =====
+            // Berdasarkan: Green Score, ROI, Payback Period, Penghematan
+            let status = '';
+            let statusIcon = '';
+            let statusClass = '';
+            let statusDetail = '';
+
+            // Rule 1: Sangat Layak - semua kriteria terpenuhi
+            if (score >= 70 && roi5 >= 50 && payback <= 5 && yearlySavings >= 10000000) {
+                status = 'Sangat Layak';
+                statusIcon = '🟢';
+                statusClass = 'sangat-layak';
+                statusDetail = 'Green Score tinggi, ROI > 50%, Payback < 5 tahun, Penghematan > Rp 10 Jt/tahun';
+            }
+            // Rule 2: Layak Dipertimbangkan - sebagian kriteria terpenuhi
+            else if (score >= 50 && roi5 >= 25 && payback <= 7 && yearlySavings >= 5000000) {
+                status = 'Layak Dipertimbangkan';
+                statusIcon = '🟡';
+                statusClass = 'layak';
+                statusDetail = 'Beberapa indikator baik, namun ada faktor yang perlu dievaluasi lebih lanjut';
+            }
+            // Rule 3: Belum Direkomendasikan - kriteria tidak terpenuhi
+            else {
+                status = 'Belum Direkomendasikan';
+                statusIcon = '🔴';
+                statusClass = 'tidak-layak';
+                statusDetail = 'Green Score rendah, ROI rendah, Payback terlalu lama, atau penghematan kecil';
+            }
+
+            // Tampilkan Status Investasi
+            document.getElementById('roiStatusContainer').innerHTML = `
+                <div class="status-investasi ${statusClass}">
+                    <span class="icon">${statusIcon}</span>
+                    <div>
+                        <div>Status Investasi: <strong>${status}</strong></div>
+                        <div class="detail">${statusDetail}</div>
+                    </div>
+                </div>
+            `;
+
+            // Tampilkan hasil lainnya
+            document.getElementById('roiInvest').textContent = `Rp ${investment.toLocaleString()}`;
+            document.getElementById('roiSave').textContent = `Rp ${yearlySavings.toLocaleString()}`;
+            document.getElementById('roiPayback').textContent = `${payback.toFixed(1)} Tahun`;
+            document.getElementById('roiReturn').textContent = `${roi5.toFixed(0)}%`;
+            document.getElementById('roiScoreDisplay').textContent = `${score}/100`;
+            document.getElementById('roiRecommendation').textContent = status;
+
+            showToast(`📊 Status: ${statusIcon} ${status}`);
+        });
+
+        // =============================================
         // 10. PARTNERS
         // =============================================
         function displayPartners() {
@@ -1949,7 +1894,29 @@
         }
 
         // =============================================
-        // 11. MAHASISWA
+        // 11. CARBON IMPACT
+        // =============================================
+        document.getElementById('impactBtn').addEventListener('click', () => {
+            const type = document.getElementById('energyType').value;
+            const capacity = parseFloat(document.getElementById('energyCapacity').value) || 5;
+            const energy = energyDB[type] || energyDB.solar;
+            const co2 = energy.co2PerKw * capacity;
+            const energyKwh = capacity * 1700;
+            const trees = Math.round(co2 * 50);
+            let score = energy.score || 70;
+            if (capacity > 10) score += 5;
+            if (capacity < 2) score -= 5;
+            score = Math.min(Math.max(score, 0), 100);
+
+            document.getElementById('impactCO2').textContent = `${co2.toFixed(1)} Ton/th`;
+            document.getElementById('impactScore').textContent = `${score}/100`;
+            document.getElementById('impactEnergy').textContent = `${energyKwh.toLocaleString()} kWh/th`;
+            document.getElementById('impactTrees').textContent = `${trees} Pohon`;
+            showToast(`🌿 Dampak: ${co2.toFixed(1)} Ton CO₂/tahun`);
+        });
+
+        // =============================================
+        // 12. MAHASISWA
         // =============================================
         let selectedMahasiswa = null;
 
@@ -1992,7 +1959,7 @@
         }
 
         // =============================================
-        // 12. MODAL
+        // 13. MODAL
         // =============================================
         function openModal(mahasiswa) {
             selectedMahasiswa = mahasiswa;
@@ -2020,21 +1987,13 @@
             if (!nama) { showToast('⚠️ Mohon isi Nama UMKM!'); return; }
             if (!kontak) { showToast('⚠️ Mohon isi kontak!'); return; }
 
-            const jenisMap = {
-                'asesmen': 'Asesmen Kebutuhan Energi',
-                'edukasi': 'Edukasi Energi Terbarukan',
-                'pendampingan': 'Pendampingan Aplikasi',
-                'monitoring': 'Monitoring Implementasi',
-                'konsultasi': 'Konsultasi Investasi'
-            };
-
             showToast(`✅ Request terkirim! ${selectedMahasiswa.name} akan menghubungi Anda dalam 1x24 jam.`);
             closeModal();
             document.getElementById('reqDeskripsi').value = '';
         });
 
         // =============================================
-        // 13. FORM & BUTTONS
+        // 14. FORM & BUTTONS
         // =============================================
         document.getElementById('analyzeBtn').addEventListener('click', async () => {
             const data = {
@@ -2072,39 +2031,6 @@
             displayPartners();
         });
 
-        document.getElementById('roiBtn').addEventListener('click', () => {
-            const investment = parseFloat(document.getElementById('roiInvestment').value) || 85000000;
-            const savings = parseFloat(document.getElementById('roiSavings').value) || 1700000;
-            const yearlySavings = savings * 12;
-            const payback = investment / yearlySavings;
-            const roi5 = ((yearlySavings * 5 - investment) / investment) * 100;
-
-            document.getElementById('roiInvest').textContent = `Rp ${investment.toLocaleString()}`;
-            document.getElementById('roiSave').textContent = `Rp ${yearlySavings.toLocaleString()}`;
-            document.getElementById('roiPayback').textContent = `${payback.toFixed(1)} Tahun`;
-            document.getElementById('roiReturn').textContent = `${roi5.toFixed(0)}%`;
-            showToast(`📊 ROI: ${roi5.toFixed(0)}% dalam 5 tahun`);
-        });
-
-        document.getElementById('impactBtn').addEventListener('click', () => {
-            const type = document.getElementById('energyType').value;
-            const capacity = parseFloat(document.getElementById('energyCapacity').value) || 5;
-            const energy = energyDB[type] || energyDB.solar;
-            const co2 = energy.co2PerKw * capacity;
-            const energyKwh = capacity * 1700;
-            const trees = Math.round(co2 * 50);
-            let score = energy.score || 70;
-            if (capacity > 10) score += 5;
-            if (capacity < 2) score -= 5;
-            score = Math.min(Math.max(score, 0), 100);
-
-            document.getElementById('impactCO2').textContent = `${co2.toFixed(1)} Ton/th`;
-            document.getElementById('impactScore').textContent = `${score}/100`;
-            document.getElementById('impactEnergy').textContent = `${energyKwh.toLocaleString()} kWh/th`;
-            document.getElementById('impactTrees').textContent = `${trees} Pohon`;
-            showToast(`🌿 Dampak: ${co2.toFixed(1)} Ton CO₂/tahun`);
-        });
-
         document.getElementById('goToPartnerBtn').addEventListener('click', () => {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelector('[data-tab="tab-partner"]').classList.add('active');
@@ -2119,14 +2045,19 @@
         });
 
         // =============================================
-        // 14. INIT
+        // 15. INIT
         // =============================================
         displayPartners();
         renderMahasiswa();
 
+        // Auto-run ROI demo on load
+        setTimeout(() => {
+            document.getElementById('roiBtn').click();
+        }, 500);
+
         console.log('🌿 EnerGreen AI — 5 Fitur Lengkap!');
         console.log('1️⃣ AI Renewable Advisor + Hitung Keuntungan');
-        console.log('2️⃣ Smart ROI Calculator');
+        console.log('2️⃣ Smart ROI Calculator + Status Kelayakan Investasi');
         console.log('3️⃣ Carbon Impact Tracker');
         console.log('4️⃣ Green Energy Partner Hub');
         console.log('5️⃣ Green Campus Collaborative (UMK + UNESA)');

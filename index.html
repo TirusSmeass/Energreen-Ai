@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EnerGreen AI - Hitung Keuntungan UMKM</title>
+    <title>EnerGreen AI - 5 Fitur Lengkap</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -148,7 +149,7 @@
             text-decoration: none;
             font-family: inherit;
         }
-        .btn-success:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 24px rgba(0, 184, 148, 0.35); }
+        .btn-success:hover { transform: translateY(-3px) scale(1.02); }
 
         .profit-badge {
             display: inline-flex;
@@ -161,7 +162,6 @@
         }
         .profit-badge.untung { background: rgba(0, 184, 148, 0.15); color: var(--primary); }
         .profit-badge.rugi { background: rgba(225, 112, 85, 0.15); color: #e17055; }
-        .profit-badge.neutral { background: rgba(253, 203, 110, 0.15); color: #fdcb6e; }
 
         /* ========== NAVBAR ========== */
         .navbar {
@@ -202,14 +202,15 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 20px;
             list-style: none;
+            flex-wrap: wrap;
         }
         .nav-links a {
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: color var(--transition);
             position: relative;
         }
@@ -342,6 +343,42 @@
         }
         .hero-stats div h3 { font-size: 1.8rem; font-weight: 800; }
         .hero-stats div p { font-size: 0.8rem; opacity: 0.7; }
+
+        /* ========== TAB NAV ========== */
+        .tab-nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 20px 0 10px;
+            justify-content: center;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            background: var(--bg-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 0.8rem;
+            font-family: inherit;
+        }
+        .tab-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .tab-btn.active {
+            background: var(--gradient);
+            color: #fff;
+            border-color: transparent;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         /* ========== FORM ========== */
         .assessment-grid {
@@ -488,7 +525,6 @@
             margin-bottom: 14px;
         }
 
-        /* Keuntungan UMKM */
         .profit-section {
             background: rgba(0, 184, 148, 0.05);
             border-radius: var(--radius-sm);
@@ -569,6 +605,244 @@
             font-weight: 600;
         }
         .partner-card .btn-wa:hover { transform: scale(1.05); }
+
+        /* ========== DEMO CARD ========== */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .demo-card { padding: 24px; }
+        .demo-card .icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .demo-card .ai-badge {
+            display: inline-block;
+            padding: 2px 10px;
+            background: rgba(108, 92, 231, 0.15);
+            color: var(--accent);
+            border-radius: 100px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .demo-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+        .demo-card .subtitle { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; }
+        .demo-card .demo-input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            margin-bottom: 8px;
+            font-family: inherit;
+        }
+        .demo-card .demo-input:focus { outline: none; border-color: var(--primary); }
+        .demo-card .demo-btn {
+            padding: 10px 20px;
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+        .demo-card .demo-btn:hover { transform: scale(1.02); }
+        .demo-card .demo-output {
+            margin-top: 12px;
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            background: rgba(0, 184, 148, 0.06);
+            border-left: 4px solid var(--primary);
+            min-height: 50px;
+        }
+        .demo-card .demo-output .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+        }
+        .demo-card .demo-output .result-item:last-child { border-bottom: none; }
+        .demo-card .demo-output .result-label { color: var(--text-muted); }
+        .demo-card .demo-output .result-value { font-weight: 600; }
+        .demo-card .demo-output .result-value.green { color: var(--primary); }
+        .demo-card .demo-output .result-value.gold { color: #fdcb6e; }
+
+        /* ========== MAHASISWA ========== */
+        .mahasiswa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .mahasiswa-card {
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .mahasiswa-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+        .mahasiswa-card .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--gradient-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+            margin: 0 auto 10px;
+        }
+        .mahasiswa-card .name { font-weight: 700; font-size: 1rem; }
+        .mahasiswa-card .univ { font-size: 0.8rem; color: var(--text-muted); }
+        .mahasiswa-card .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            justify-content: center;
+            margin: 8px 0;
+        }
+        .mahasiswa-card .skills span {
+            padding: 2px 10px;
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: 100px;
+            font-size: 0.65rem;
+            color: var(--accent);
+        }
+        .mahasiswa-card .rating {
+            font-size: 0.85rem;
+            color: #fdcb6e;
+        }
+        .mahasiswa-card .status {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 100px;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+        .mahasiswa-card .status.available { background: rgba(0, 184, 148, 0.15); color: var(--primary); }
+        .mahasiswa-card .status.busy { background: rgba(225, 112, 85, 0.15); color: #e17055; }
+        .mahasiswa-card .btn-pilih {
+            margin-top: 10px;
+            padding: 8px 20px;
+            background: var(--gradient-purple);
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .mahasiswa-card .btn-pilih:hover { transform: scale(1.05); }
+        .mahasiswa-card .btn-pilih:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* ========== MODAL ========== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-card .modal-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+        .modal-card .modal-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+        .modal-card .form-group { margin-bottom: 14px; }
+        .modal-card .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+        .modal-card .form-group input,
+        .modal-card .form-group select,
+        .modal-card .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .modal-card .form-group input:focus,
+        .modal-card .form-group select:focus,
+        .modal-card .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .modal-card .form-group textarea { resize: vertical; min-height: 80px; }
+        .modal-card .modal-actions { display: flex; gap: 10px; margin-top: 16px; }
+        .modal-card .modal-actions .btn-primary { flex: 1; justify-content: center; }
+        .modal-card .modal-actions .btn-secondary { flex: 1; justify-content: center; }
+
+        /* ========== ALUR ========== */
+        .alur-flow {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .alur-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 14px 18px;
+            min-width: 100px;
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all var(--transition);
+        }
+        .alur-step:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .alur-step .step-icon { font-size: 1.8rem; }
+        .alur-step .step-label { font-size: 0.7rem; font-weight: 600; text-align: center; color: var(--text-muted); }
+        .alur-step .step-desc { font-size: 0.6rem; text-align: center; color: var(--text-muted); opacity: 0.6; }
+        .alur-arrow { font-size: 1.2rem; color: var(--accent); opacity: 0.5; }
 
         /* ========== TOAST ========== */
         .toast {
@@ -670,17 +944,28 @@
             .result-actions { flex-direction: column; }
             .result-actions .btn-primary,
             .result-actions .btn-success { width: 100%; justify-content: center; }
+            .demo-grid { grid-template-columns: 1fr; }
             .partner-grid { grid-template-columns: 1fr 1fr; }
+            .mahasiswa-grid { grid-template-columns: 1fr 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .loading-card { margin: 0 16px; padding: 28px 20px; }
+            .tab-nav { gap: 6px; }
+            .tab-btn { padding: 8px 14px; font-size: 0.7rem; }
+            .alur-flow { flex-direction: column; }
+            .alur-arrow { transform: rotate(90deg); }
+            .modal-card { margin: 16px; padding: 24px; }
         }
         @media (max-width: 480px) {
             .partner-grid { grid-template-columns: 1fr; }
+            .mahasiswa-grid { grid-template-columns: 1fr; }
             .profit-grid { grid-template-columns: 1fr; }
             .form-card { padding: 18px; }
             .score-card { padding: 18px; }
             .insight-card { padding: 18px; }
+            .demo-card { padding: 18px; }
+            .modal-card { padding: 20px; }
+            .modal-card .modal-actions { flex-direction: column; }
         }
     </style>
 </head>
@@ -702,6 +987,45 @@
         </div>
     </div>
 
+    <!-- ========== MODAL REQUEST ========== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-card">
+            <div class="modal-title">📋 Request Pendampingan</div>
+            <div class="modal-subtitle" id="modalSubtitle">Isi data untuk meminta pendampingan dari mahasiswa</div>
+
+            <div class="form-group">
+                <label>Nama UMKM <span class="required">*</span></label>
+                <input type="text" id="reqNama" value="Warung Makan Bahari" />
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Pendampingan <span class="required">*</span></label>
+                <select id="reqJenis">
+                    <option value="asesmen">📋 Asesmen Kebutuhan Energi</option>
+                    <option value="edukasi">🎓 Edukasi Energi Terbarukan</option>
+                    <option value="pendampingan">📱 Pendampingan Aplikasi</option>
+                    <option value="monitoring">📊 Monitoring Implementasi</option>
+                    <option value="konsultasi">💬 Konsultasi Investasi</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Deskripsi Kebutuhan</label>
+                <textarea id="reqDeskripsi">Saya ingin beralih ke energi terbarukan untuk usaha kuliner saya. Butuh bantuan analisis dan rekomendasi.</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Kontak (WA/Email)</label>
+                <input type="text" id="reqKontak" value="0812-3456-7890" />
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-primary" id="submitRequestBtn"><i class="fas fa-paper-plane"></i> Kirim Request</button>
+                <button class="btn-secondary" id="closeModalBtn">Batal</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -710,8 +1034,10 @@
                 EnerGreen AI
             </a>
             <ul class="nav-links" id="navLinks">
+                <li><a href="#fitur">⚡ Fitur</a></li>
                 <li><a href="#advisor">📝 Advisor</a></li>
                 <li><a href="#partner">🤝 Partner</a></li>
+                <li><a href="#campus">🎓 Kolaborasi</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="theme-toggle" id="themeToggle">
@@ -731,21 +1057,20 @@
         <div class="container">
             <div class="hero-badge">
                 <i class="fas fa-sparkles"></i>
-                AI Renewable Advisor + Hitung Keuntungan
+                5 Fitur AI untuk UMKM Kuliner
             </div>
             <div class="tagline">"Smart Decision, Green Transition."</div>
             <h1>
                 EnerGreen AI:<br />
-                <span class="highlight">Hitung Keuntungan</span> UMKM<br />
-                dengan Energi Terbarukan
+                <span class="highlight">5 Fitur Lengkap</span><br />
+                untuk Adopsi Energi Terbarukan
             </h1>
             <p>
-                Cari tahu berapa <strong>keuntungan bersih</strong> yang bisa didapat UMKM 
-                dengan beralih ke energi terbarukan. AI akan menghitung investasi, penghematan, 
-                dan total keuntungan jangka panjang.
+                Platform AI Agent berbasis mobile yang membantu UMKM kuliner 
+                mengambil keputusan adopsi energi terbarukan secara tepat.
             </p>
             <a href="#advisor" class="btn-primary">
-                <i class="fas fa-rocket"></i> Mulai Analisis
+                <i class="fas fa-rocket"></i> Mulai Analisis Energi
             </a>
             <div class="hero-stats">
                 <div><h3>500+</h3><p>UMKM Terbantu</p></div>
@@ -755,18 +1080,22 @@
         </div>
     </section>
 
-    <!-- ========== AI RENEWABLE ADVISOR ========== -->
-    <section id="advisor" style="padding: 40px 0 60px;">
+    <!-- ========== TAB NAVIGATION ========== -->
+    <section style="padding: 20px 0 0;" id="fitur">
         <div class="container">
-            <span class="section-badge"><i class="fas fa-robot"></i> AI Renewable Advisor</span>
-            <h2 class="section-title">
-                <span>Analisis</span> Usaha & <span>Hitung Keuntungan</span>
-            </h2>
-            <p class="section-desc">
-                Isi data usaha, AI akan menganalisis dan menghitung berapa keuntungan yang bisa didapat.
-            </p>
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="tab-advisor">📝 AI Advisor</button>
+                <button class="tab-btn" data-tab="tab-roi">💰 ROI Calculator</button>
+                <button class="tab-btn" data-tab="tab-carbon">🌿 Carbon Impact</button>
+                <button class="tab-btn" data-tab="tab-partner">🤝 Partner Hub</button>
+                <button class="tab-btn" data-tab="tab-campus">🎓 Green Campus</button>
+            </div>
+        </div>
+    </section>
 
-            <!-- Assessment -->
+    <!-- ========== TAB 1: AI RENEWABLE ADVISOR ========== -->
+    <section class="tab-content active" id="tab-advisor">
+        <div class="container" id="advisor">
             <div class="assessment-grid">
                 <div class="form-card glass-card">
                     <div class="form-title">📋 Profil Usaha</div>
@@ -892,103 +1221,54 @@
                     </div>
                 </div>
 
-                <!-- Side Info -->
                 <div class="glass-card" style="align-self:start;">
                     <div style="text-align:center; padding:10px 0;">
                         <div style="font-size:3rem; margin-bottom:10px;">💰</div>
                         <h3 style="font-size:1rem; font-weight:700;">Keuntungan UMKM</h3>
                         <p style="color:var(--text-muted); font-size:0.85rem; margin-top:6px; line-height:1.8;">
-                            AI akan menghitung:
+                            AI akan menghitung investasi, penghematan, dan keuntungan jangka panjang.
                         </p>
                         <div style="margin-top:12px; padding:12px; background:rgba(0,184,148,0.06); border-radius:8px; text-align:left; font-size:0.8rem; color:var(--text-muted);">
                             <div style="display:flex; gap:8px; padding:3px 0;"><span>💰</span> Investasi awal</div>
                             <div style="display:flex; gap:8px; padding:3px 0;"><span>📉</span> Penghematan listrik</div>
                             <div style="display:flex; gap:8px; padding:3px 0;"><span>📈</span> Keuntungan per bulan</div>
-                            <div style="display:flex; gap:8px; padding:3px 0;"><span>🏆</span> Total keuntungan 5 tahun</div>
-                            <div style="display:flex; gap:8px; padding:3px 0;"><span>⏱️</span> Waktu balik modal</div>
+                            <div style="display:flex; gap:8px; padding:3px 0;"><span>🏆</span> Keuntungan 5 tahun</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Result -->
             <div id="resultContainer" style="display:none; margin-top:40px;">
                 <span class="section-badge"><i class="fas fa-chart-bar"></i> Hasil Analisis</span>
-                <h2 class="section-title">
-                    <span>Rekomendasi</span> & <span>Keuntungan</span> UMKM
-                </h2>
-
+                <h2 class="section-title"><span>Rekomendasi</span> & <span>Keuntungan</span> UMKM</h2>
                 <div class="result-grid">
                     <div class="score-card glass-card">
                         <div class="score-title">🏆 Green Energy Suitability Score</div>
                         <div id="scoreList"></div>
                     </div>
-
                     <div class="insight-card glass-card">
                         <div class="insight-title"><i class="fas fa-lightbulb"></i> AI Insight</div>
                         <div class="insight-text" id="aiInsight"></div>
-
-                        <!-- KEUNTUNGAN UMKM -->
                         <div class="profit-section" id="profitSection">
-                            <div class="profit-title">
-                                <i class="fas fa-chart-line"></i> 
-                                Keuntungan UMKM dengan Rekomendasi Ini
-                                <span id="profitBadge" class="profit-badge untung" style="margin-left:8px;">✅ Untung</span>
-                            </div>
+                            <div class="profit-title"><i class="fas fa-chart-line"></i> Keuntungan UMKM <span id="profitBadge" class="profit-badge untung" style="margin-left:8px;">✅ Untung</span></div>
                             <div class="profit-grid" id="profitGrid">
-                                <div class="profit-item">
-                                    <div class="label">💰 Investasi</div>
-                                    <div class="value gold" id="pInvestasi">Rp 85.000.000</div>
-                                </div>
-                                <div class="profit-item">
-                                    <div class="label">📉 Penghematan / bln</div>
-                                    <div class="value green" id="pHemat">Rp 1.575.000</div>
-                                </div>
-                                <div class="profit-item">
-                                    <div class="label">📈 Keuntungan / bln</div>
-                                    <div class="value blue" id="pUntung">Rp 1.575.000</div>
-                                </div>
-                                <div class="profit-item">
-                                    <div class="label">⏱️ Payback Period</div>
-                                    <div class="value" id="pPayback">4.5 tahun</div>
-                                </div>
-                                <div class="profit-item">
-                                    <div class="label">🏆 Keuntungan 5 Tahun</div>
-                                    <div class="value gold" id="pTotal">Rp 94.500.000</div>
-                                </div>
-                                <div class="profit-item">
-                                    <div class="label">🌿 CO₂ Berkurang</div>
-                                    <div class="value green" id="pCO2">2.0 ton/th</div>
-                                </div>
+                                <div class="profit-item"><div class="label">💰 Investasi</div><div class="value gold" id="pInvestasi">Rp 85.000.000</div></div>
+                                <div class="profit-item"><div class="label">📉 Penghematan / bln</div><div class="value green" id="pHemat">Rp 1.575.000</div></div>
+                                <div class="profit-item"><div class="label">📈 Keuntungan / bln</div><div class="value blue" id="pUntung">Rp 1.575.000</div></div>
+                                <div class="profit-item"><div class="label">⏱️ Payback Period</div><div class="value" id="pPayback">4.5 tahun</div></div>
+                                <div class="profit-item"><div class="label">🏆 Keuntungan 5 Tahun</div><div class="value gold" id="pTotal">Rp 94.500.000</div></div>
+                                <div class="profit-item"><div class="label">🌿 CO₂ Berkurang</div><div class="value green" id="pCO2">2.0 ton/th</div></div>
                             </div>
                         </div>
-
                         <div class="estimation-grid" id="estimationGrid">
-                            <div class="estimation-item">
-                                <div class="label">💰 Investasi</div>
-                                <div class="value gold" id="eInvest">Rp 85.000.000</div>
-                            </div>
-                            <div class="estimation-item">
-                                <div class="label">📉 Penghematan / bulan</div>
-                                <div class="value green" id="eHemat">Rp 1.575.000</div>
-                            </div>
-                            <div class="estimation-item">
-                                <div class="label">⏱️ Payback Period</div>
-                                <div class="value" id="ePayback">4.5 tahun</div>
-                            </div>
-                            <div class="estimation-item">
-                                <div class="label">🌿 Pengurangan Emisi</div>
-                                <div class="value green" id="eCO2">2.0 ton CO₂/tahun</div>
-                            </div>
+                            <div class="estimation-item"><div class="label">💰 Investasi</div><div class="value gold" id="eInvest">Rp 85.000.000</div></div>
+                            <div class="estimation-item"><div class="label">📉 Penghematan / bln</div><div class="value green" id="eHemat">Rp 1.575.000</div></div>
+                            <div class="estimation-item"><div class="label">⏱️ Payback Period</div><div class="value" id="ePayback">4.5 tahun</div></div>
+                            <div class="estimation-item"><div class="label">🌿 Pengurangan Emisi</div><div class="value green" id="eCO2">2.0 ton CO₂/tahun</div></div>
                         </div>
-
                         <div class="result-actions">
-                            <button class="btn-success" id="goToPartnerBtn">
-                                <i class="fas fa-handshake"></i> Lihat Mitra Implementasi
-                            </button>
-                            <button class="btn-secondary" id="backToFormBtn">
-                                <i class="fas fa-arrow-left"></i> Kembali
-                            </button>
+                            <button class="btn-success" id="goToPartnerBtn"><i class="fas fa-handshake"></i> Lihat Mitra Implementasi</button>
+                            <button class="btn-secondary" id="backToFormBtn"><i class="fas fa-arrow-left"></i> Kembali</button>
                         </div>
                     </div>
                 </div>
@@ -996,19 +1276,141 @@
         </div>
     </section>
 
-    <!-- ========== PARTNER HUB ========== -->
-    <section id="partner" style="padding: 40px 0 60px; background: var(--bg-card);">
-        <div class="container">
-            <span class="section-badge" style="background:var(--gradient-warm);"><i class="fas fa-handshake"></i> Partner Hub</span>
-            <h2 class="section-title">
-                <span>Green Energy</span> Partner Hub
-            </h2>
-            <p class="section-desc">
-                Terhubung dengan vendor terpercaya untuk konsultasi dan instalasi energi terbarukan.
-            </p>
+    <!-- ========== TAB 2: ROI CALCULATOR ========== -->
+    <section class="tab-content" id="tab-roi">
+        <div class="container" style="padding:20px 0 40px;">
+            <span class="section-badge"><i class="fas fa-calculator"></i> Smart ROI Calculator</span>
+            <h2 class="section-title">Hitung <span>Kelayakan Investasi</span> Energi</h2>
+            <p class="section-desc">Masukkan biaya investasi dan penghematan untuk melihat ROI.</p>
+            <div class="demo-grid">
+                <div class="demo-card glass-card">
+                    <div class="icon-box" style="background:var(--gradient-warm);"><i class="fas fa-calculator"></i></div>
+                    <span class="ai-badge">Rule-Based</span>
+                    <h4>Smart ROI Calculator</h4>
+                    <p class="subtitle">Hitung kelayakan investasi</p>
+                    <input type="number" class="demo-input" id="roiInvestment" placeholder="Biaya investasi (Rp)" value="85000000" />
+                    <input type="number" class="demo-input" id="roiSavings" placeholder="Penghematan/bulan (Rp)" value="1700000" />
+                    <button class="demo-btn" id="roiBtn"><i class="fas fa-calculator"></i> Hitung ROI</button>
+                    <div class="demo-output" id="roiOutput">
+                        <div class="result-item"><span class="result-label">💰 Investasi</span><span class="result-value gold" id="roiInvest">Rp 85.000.000</span></div>
+                        <div class="result-item"><span class="result-label">📉 Penghematan/th</span><span class="result-value green" id="roiSave">Rp 20.400.000</span></div>
+                        <div class="result-item"><span class="result-label">⏱️ Payback Period</span><span class="result-value" id="roiPayback">4.2 Tahun</span></div>
+                        <div class="result-item"><span class="result-label">📈 ROI 5 Tahun</span><span class="result-value gold" id="roiReturn">120%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="partner-grid" id="partnerGrid">
-                <!-- Diisi oleh JavaScript -->
+    <!-- ========== TAB 3: CARBON IMPACT ========== -->
+    <section class="tab-content" id="tab-carbon">
+        <div class="container" style="padding:20px 0 40px;">
+            <span class="section-badge"><i class="fas fa-leaf"></i> Carbon Impact Tracker</span>
+            <h2 class="section-title">Ukur <span>Dampak Lingkungan</span> Energi</h2>
+            <p class="section-desc">Lihat pengurangan emisi CO₂ dan Green Score dari energi terbarukan.</p>
+            <div class="demo-grid">
+                <div class="demo-card glass-card">
+                    <div class="icon-box" style="background:var(--gradient-purple);"><i class="fas fa-leaf"></i></div>
+                    <span class="ai-badge">Real-time</span>
+                    <h4>Carbon Impact Tracker</h4>
+                    <p class="subtitle">Ukur dampak lingkungan</p>
+                    <select class="demo-input" id="energyType">
+                        <option value="solar">☀️ Panel Surya</option>
+                        <option value="biomass">🔥 Biomassa</option>
+                        <option value="wind">💨 Angin</option>
+                    </select>
+                    <input type="number" class="demo-input" id="energyCapacity" placeholder="Kapasitas (kW)" value="5" />
+                    <button class="demo-btn" id="impactBtn"><i class="fas fa-leaf"></i> Hitung Dampak</button>
+                    <div class="demo-output" id="impactOutput">
+                        <div class="result-item"><span class="result-label">🌿 CO₂ Berkurang</span><span class="result-value green" id="impactCO2">2.4 Ton/th</span></div>
+                        <div class="result-item"><span class="result-label">🏆 Green Score</span><span class="result-value gold" id="impactScore">85/100</span></div>
+                        <div class="result-item"><span class="result-label">⚡ Energi Bersih</span><span class="result-value green" id="impactEnergy">8.500 kWh/th</span></div>
+                        <div class="result-item"><span class="result-label">🌳 Pohon Setara</span><span class="result-value" id="impactTrees">120 Pohon</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TAB 4: PARTNER HUB ========== -->
+    <section class="tab-content" id="tab-partner">
+        <div class="container" style="padding:20px 0 40px;" id="partner">
+            <span class="section-badge" style="background:var(--gradient-warm);"><i class="fas fa-handshake"></i> Partner Hub</span>
+            <h2 class="section-title"><span>Green Energy</span> Partner Hub</h2>
+            <p class="section-desc">Terhubung dengan vendor terpercaya untuk konsultasi dan instalasi energi terbarukan.</p>
+            <div class="partner-grid" id="partnerGrid"></div>
+        </div>
+    </section>
+
+    <!-- ========== TAB 5: GREEN CAMPUS ========== -->
+    <section class="tab-content" id="tab-campus">
+        <div class="container" style="padding:20px 0 40px;" id="campus">
+            <span class="section-badge" style="background:var(--gradient-purple);"><i class="fas fa-graduation-cap"></i> Kolaborasi</span>
+            <h2 class="section-title"><span>Green Campus</span> Collaborative</h2>
+            <p class="section-desc">Mahasiswa sebagai Green Energy Ambassador — pendamping transformasi energi UMKM.</p>
+
+            <!-- Alur -->
+            <div style="margin-top:20px;">
+                <h4 style="font-weight:700; font-size:1rem;">📋 Alur Pendampingan</h4>
+                <div class="alur-flow">
+                    <div class="alur-step"><span class="step-icon">1️⃣</span><span class="step-label">Cari Mahasiswa</span><span class="step-desc">Lihat daftar Green Ambassador</span></div>
+                    <span class="alur-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="alur-step"><span class="step-icon">2️⃣</span><span class="step-label">Pilih & Klik</span><span class="step-desc">Pilih mahasiswa yang sesuai</span></div>
+                    <span class="alur-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="alur-step"><span class="step-icon">3️⃣</span><span class="step-label">Isi Request</span><span class="step-desc">Jelaskan kebutuhan UMKM</span></div>
+                    <span class="alur-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="alur-step"><span class="step-icon">4️⃣</span><span class="step-label">Mahasiswa Respon</span><span class="step-desc">Dalam 1x24 jam</span></div>
+                    <span class="alur-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="alur-step" style="border-color:var(--accent);"><span class="step-icon">5️⃣</span><span class="step-label" style="color:var(--accent);">Pendampingan</span><span class="step-desc">Asesmen → Edukasi → Implementasi</span></div>
+                </div>
+            </div>
+
+            <!-- Daftar Mahasiswa -->
+            <h4 style="font-weight:700; font-size:1rem; margin-top:28px;">👨‍🎓 Green Energy Ambassador</h4>
+            <div class="mahasiswa-grid" id="mahasiswaGrid"></div>
+
+            <!-- Peran Mahasiswa -->
+            <div style="margin-top:28px;">
+                <h4 style="font-weight:700; font-size:1rem;">📖 Peran Mahasiswa</h4>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-top:12px;">
+                    <div class="glass-card" style="padding:16px; text-align:center;">
+                        <div style="font-size:2rem;">📋</div>
+                        <div style="font-weight:600; font-size:0.85rem;">Asesmen Kebutuhan</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted);">Analisis energi UMKM</div>
+                    </div>
+                    <div class="glass-card" style="padding:16px; text-align:center;">
+                        <div style="font-size:2rem;">📱</div>
+                        <div style="font-weight:600; font-size:0.85rem;">Pendampingan Aplikasi</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted);">Bantu gunakan EnerGreen AI</div>
+                    </div>
+                    <div class="glass-card" style="padding:16px; text-align:center;">
+                        <div style="font-size:2rem;">🎓</div>
+                        <div style="font-weight:600; font-size:0.85rem;">Edukasi Energi</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted);">Sosialisasi energi terbarukan</div>
+                    </div>
+                    <div class="glass-card" style="padding:16px; text-align:center;">
+                        <div style="font-size:2rem;">🔗</div>
+                        <div style="font-weight:600; font-size:0.85rem;">Penghubung</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted);">Hubungkan dengan vendor</div>
+                    </div>
+                    <div class="glass-card" style="padding:16px; text-align:center;">
+                        <div style="font-size:2rem;">📊</div>
+                        <div style="font-weight:600; font-size:0.85rem;">Monitoring</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted);">Pantau implementasi</div>
+                    </div>
+                    <div class="glass-card" style="padding:16px; text-align:center; border-color:var(--accent);">
+                        <div style="font-size:2rem;">🏅</div>
+                        <div style="font-weight:600; font-size:0.85rem; color:var(--accent);">Sertifikasi</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted);">Green Ambassador</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gratis -->
+            <div class="glass-card" style="margin-top:20px; background:rgba(108,92,231,0.05); border-color:var(--accent); text-align:center; padding:20px;">
+                <div style="font-size:2rem;">✅ GRATIS</div>
+                <div style="font-weight:700; font-size:1rem;">Program pendampingan dari kampus untuk masyarakat</div>
+                <div style="font-size:0.85rem; color:var(--text-muted);">Mahasiswa membantu UMKM tanpa biaya</div>
             </div>
         </div>
     </section>
@@ -1019,14 +1421,17 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3><i class="fas fa-leaf"></i> EnerGreen AI</h3>
-                    <p>AI Renewable Advisor + Hitung Keuntungan UMKM dengan energi terbarukan.</p>
+                    <p>5 Fitur AI untuk Decision Support System adopsi energi terbarukan bagi UMKM kuliner.</p>
                     <p style="margin-top:6px; font-weight:600; color:var(--primary);">"Smart Decision, Green Transition."</p>
                 </div>
                 <div class="footer-col">
                     <h4>Fitur</h4>
                     <ul>
                         <li><a href="#advisor">AI Renewable Advisor</a></li>
+                        <li><a href="#tab-roi">Smart ROI Calculator</a></li>
+                        <li><a href="#tab-carbon">Carbon Impact Tracker</a></li>
                         <li><a href="#partner">Green Partner Hub</a></li>
+                        <li><a href="#campus">Green Campus Collaborative</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1037,7 +1442,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>&copy; 2026 EnerGreen AI. All rights reserved.</p>
                 <div class="footer-social">
@@ -1076,7 +1480,115 @@
         ];
 
         // =============================================
-        // 2. THEME TOGGLE
+        // 2. MAHASISWA DATA (DENGAN UMK & UNESA)
+        // =============================================
+        const mahasiswaData = [
+            {
+                id: 1,
+                name: 'Ahmad Fauzi',
+                univ: 'Universitas Indonesia',
+                skills: ['PLTS', 'Analisis Energi', 'Edukasi'],
+                rating: 4.9,
+                totalMentoring: 12,
+                status: 'available',
+                avatar: '👨‍💻'
+            },
+            {
+                id: 2,
+                name: 'Siti Rahma',
+                univ: 'Institut Teknologi Bandung',
+                skills: ['Biogas', 'Lingkungan', 'Konsultasi'],
+                rating: 4.8,
+                totalMentoring: 9,
+                status: 'available',
+                avatar: '👩‍💻'
+            },
+            {
+                id: 3,
+                name: 'Budi Santoso',
+                univ: 'Universitas Gadjah Mada',
+                skills: ['Biomassa', 'IoT', 'Monitoring'],
+                rating: 4.7,
+                totalMentoring: 7,
+                status: 'busy',
+                avatar: '👨‍🔬'
+            },
+            {
+                id: 4,
+                name: 'Dewi Lestari',
+                univ: 'Universitas Brawijaya',
+                skills: ['PLTS', 'Pendampingan', 'Edukasi'],
+                rating: 4.9,
+                totalMentoring: 15,
+                status: 'available',
+                avatar: '👩‍🔬'
+            },
+            {
+                id: 5,
+                name: 'Rizky Hidayat',
+                univ: 'Universitas Diponegoro',
+                skills: ['Analisis Energi', 'ROI', 'Konsultasi'],
+                rating: 4.6,
+                totalMentoring: 5,
+                status: 'available',
+                avatar: '👨‍🏫'
+            },
+            {
+                id: 6,
+                name: 'Nina Kusuma',
+                univ: 'Universitas Padjadjaran',
+                skills: ['Biogas', 'Lingkungan', 'Monitoring'],
+                rating: 4.8,
+                totalMentoring: 8,
+                status: 'busy',
+                avatar: '👩‍🏫'
+            },
+            // ===== UNIVERSITAS MURIA KUDUS =====
+            {
+                id: 7,
+                name: 'Muhammad Rizki',
+                univ: 'Universitas Muria Kudus',
+                skills: ['PLTS', 'Analisis Energi', 'Edukasi'],
+                rating: 4.7,
+                totalMentoring: 6,
+                status: 'available',
+                avatar: '👨‍🎓'
+            },
+            {
+                id: 8,
+                name: 'Nur Aini',
+                univ: 'Universitas Muria Kudus',
+                skills: ['Biogas', 'Lingkungan', 'Konsultasi'],
+                rating: 4.6,
+                totalMentoring: 4,
+                status: 'available',
+                avatar: '👩‍🎓'
+            },
+            // ===== UNIVERSITAS NEGERI SURABAYA =====
+            {
+                id: 9,
+                name: 'Andi Wijaya',
+                univ: 'Universitas Negeri Surabaya',
+                skills: ['PLTS', 'IoT', 'Monitoring'],
+                rating: 4.8,
+                totalMentoring: 10,
+                status: 'available',
+                avatar: '👨‍🎓'
+            },
+            {
+                id: 10,
+                name: 'Rina Sari',
+                univ: 'Universitas Negeri Surabaya',
+                skills: ['Biomassa', 'Pendampingan', 'Edukasi'],
+                rating: 4.7,
+                totalMentoring: 7,
+                status: 'busy',
+                avatar: '👩‍🎓'
+            }
+        ];
+
+        // =============================================
+        // 3. THEME TOGGLE
         // =============================================
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
@@ -1098,7 +1610,7 @@
         }
 
         // =============================================
-        // 3. NAVBAR
+        // 4. NAVBAR
         // =============================================
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -1119,7 +1631,19 @@
         });
 
         // =============================================
-        // 4. TOAST
+        // 5. TAB NAVIGATION
+        // =============================================
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // =============================================
+        // 6. TOAST
         // =============================================
         function showToast(message) {
             const toast = document.getElementById('toast');
@@ -1130,7 +1654,7 @@
         }
 
         // =============================================
-        // 5. LOADING
+        // 7. LOADING
         // =============================================
         function showLoading() {
             const overlay = document.getElementById('loadingOverlay');
@@ -1152,26 +1676,20 @@
                     progress += Math.random() * 3 + 1;
                     if (progress > 100) progress = 100;
                     document.getElementById('loadingFill').style.width = progress + '%';
-
                     for (let s of statuses) {
-                        if (progress >= s.p) {
-                            document.getElementById('loadingStatus').textContent = s.text;
-                        }
+                        if (progress >= s.p) document.getElementById('loadingStatus').textContent = s.text;
                     }
-
                     if (progress >= 100) {
                         clearInterval(interval);
-                        setTimeout(() => {
-                            overlay.classList.remove('active');
-                            resolve();
-                        }, 500);
+                        setTimeout(() => { overlay.classList.remove('active');
+                            resolve(); }, 500);
                     }
                 }, 120);
             });
         }
 
         // =============================================
-        // 6. AI ANALYSIS + HITUNG KEUNTUNGAN
+        // 8. AI ANALYSIS
         // =============================================
         function analyzeBusiness(data) {
             const bill = parseFloat(data.bill) || 3000000;
@@ -1187,8 +1705,6 @@
             const blenders = parseInt(data.blenders) || 0;
 
             let scores = {};
-
-            // PLTS Atap (Solar)
             let solarScore = 50;
             if (bill > 3000000) solarScore += 15;
             if (bill > 5000000) solarScore += 10;
@@ -1201,7 +1717,6 @@
             solarScore = Math.min(solarScore, 94);
             scores.solar = Math.round(solarScore);
 
-            // Biogas
             let biogasScore = 30;
             if (organic) biogasScore += 30;
             if (bill > 3000000) biogasScore += 10;
@@ -1211,7 +1726,6 @@
             biogasScore = Math.min(biogasScore, 72);
             scores.biogas = Math.round(biogasScore);
 
-            // Biomassa
             let biomassScore = 20;
             if (organic) biomassScore += 20;
             if (bill > 2000000) biomassScore += 10;
@@ -1239,10 +1753,9 @@
             const payback = (cost / (monthlySavings * 12));
             const co2 = energy.co2PerKw * capacity * 0.8;
 
-            // ===== HITUNG KEUNTUNGAN UMKM =====
-            const profitPerMonth = monthlySavings; // Keuntungan bersih per bulan
-            const profit5Years = profitPerMonth * 60; // Keuntungan 5 tahun
-            const totalProfit = profit5Years - cost; // Total keuntungan setelah dikurangi investasi
+            const profitPerMonth = monthlySavings;
+            const profit5Years = profitPerMonth * 60;
+            const totalProfit = profit5Years - cost;
 
             let reasons = [];
             if (bill > 3000000) reasons.push('konsumsi listrik tinggi');
@@ -1275,7 +1788,7 @@
         }
 
         // =============================================
-        // 7. DISPLAY RESULTS + KEUNTUNGAN
+        // 9. DISPLAY RESULTS
         // =============================================
         function displayResults(result) {
             const scoreMap = {
@@ -1286,7 +1799,6 @@
 
             const sorted = Object.entries(result.scores).sort((a, b) => b[1] - a[1]);
 
-            // Score
             document.getElementById('scoreList').innerHTML = sorted.map(([key, score]) => {
                 const data = scoreMap[key];
                 const isBest = key === result.best;
@@ -1306,16 +1818,13 @@
                 `;
             }).join('');
 
-            // Insight
             document.getElementById('aiInsight').innerHTML = result.insight;
 
-            // Estimation
             document.getElementById('eInvest').textContent = `Rp ${result.cost.toLocaleString()}`;
             document.getElementById('eHemat').textContent = `Rp ${result.monthlySavings.toLocaleString()}`;
             document.getElementById('ePayback').textContent = `${result.payback.toFixed(1)} tahun`;
             document.getElementById('eCO2').textContent = `${result.co2.toFixed(1)} ton CO₂/tahun`;
 
-            // Profit
             const profitBadge = document.getElementById('profitBadge');
             if (result.isProfitable) {
                 profitBadge.className = 'profit-badge untung';
@@ -1332,15 +1841,13 @@
             document.getElementById('pTotal').textContent = `Rp ${result.profit5Years.toLocaleString()}`;
             document.getElementById('pCO2').textContent = `${result.co2.toFixed(1)} ton/th`;
 
-            // Show result
             document.getElementById('resultContainer').style.display = 'block';
             document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
             showToast(`✅ Rekomendasi: ${result.bestIcon} ${result.bestName} — Keuntungan Rp ${result.profitPerMonth.toLocaleString()}/bulan`);
         }
 
         // =============================================
-        // 8. DISPLAY PARTNERS
+        // 10. PARTNERS
         // =============================================
         function displayPartners() {
             const grid = document.getElementById('partnerGrid');
@@ -1357,7 +1864,92 @@
         }
 
         // =============================================
-        // 9. FORM SUBMIT
+        // 11. MAHASISWA
+        // =============================================
+        let selectedMahasiswa = null;
+
+        function renderMahasiswa() {
+            const grid = document.getElementById('mahasiswaGrid');
+            grid.innerHTML = mahasiswaData.map(m => {
+                const statusText = m.status === 'available' ? '🟢 Tersedia' : '🔴 Sibuk';
+                const statusClass = m.status === 'available' ? 'available' : 'busy';
+                const stars = '★'.repeat(Math.floor(m.rating)) + (m.rating % 1 >= 0.5 ? '★' : '');
+                const isUMK = m.univ === 'Universitas Muria Kudus';
+                const isUNESA = m.univ === 'Universitas Negeri Surabaya';
+                const badge = isUMK ? '🎓 UMK' : isUNESA ? '🎓 UNESA' : '';
+
+                return `
+                    <div class="mahasiswa-card glass-card">
+                        <div class="avatar">${m.avatar}</div>
+                        <div class="name">${m.name} ${badge ? `<span style="font-size:0.6rem; background:var(--accent); color:#fff; padding:2px 8px; border-radius:100px;">${badge}</span>` : ''}</div>
+                        <div class="univ">🎓 ${m.univ}</div>
+                        <div class="skills">${m.skills.map(s => `<span>${s}</span>`).join('')}</div>
+                        <div class="rating">${stars} ${m.rating} (${m.totalMentoring} pendampingan)</div>
+                        <div><span class="status ${statusClass}">${statusText}</span></div>
+                        <button class="btn-pilih" data-id="${m.id}" ${m.status === 'busy' ? 'disabled' : ''}>
+                            ${m.status === 'available' ? '📩 Pilih Pendamping' : '⏳ Tidak Tersedia'}
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            document.querySelectorAll('.btn-pilih').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.dataset.id);
+                    const mahasiswa = mahasiswaData.find(m => m.id === id);
+                    if (mahasiswa && mahasiswa.status === 'available') {
+                        openModal(mahasiswa);
+                    } else {
+                        showToast('⚠️ Mahasiswa ini sedang sibuk. Pilih yang lain!');
+                    }
+                });
+            });
+        }
+
+        // =============================================
+        // 12. MODAL
+        // =============================================
+        function openModal(mahasiswa) {
+            selectedMahasiswa = mahasiswa;
+            document.getElementById('modalSubtitle').textContent =
+                `📩 Ajukan pendampingan ke ${mahasiswa.name} (${mahasiswa.univ})`;
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            selectedMahasiswa = null;
+        }
+
+        document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeModal();
+        });
+
+        document.getElementById('submitRequestBtn').addEventListener('click', () => {
+            const nama = document.getElementById('reqNama').value.trim();
+            const jenis = document.getElementById('reqJenis').value;
+            const deskripsi = document.getElementById('reqDeskripsi').value.trim();
+            const kontak = document.getElementById('reqKontak').value.trim();
+
+            if (!nama) { showToast('⚠️ Mohon isi Nama UMKM!'); return; }
+            if (!kontak) { showToast('⚠️ Mohon isi kontak!'); return; }
+
+            const jenisMap = {
+                'asesmen': 'Asesmen Kebutuhan Energi',
+                'edukasi': 'Edukasi Energi Terbarukan',
+                'pendampingan': 'Pendampingan Aplikasi',
+                'monitoring': 'Monitoring Implementasi',
+                'konsultasi': 'Konsultasi Investasi'
+            };
+
+            showToast(`✅ Request terkirim! ${selectedMahasiswa.name} akan menghubungi Anda dalam 1x24 jam.`);
+            closeModal();
+            document.getElementById('reqDeskripsi').value = '';
+        });
+
+        // =============================================
+        // 13. FORM & BUTTONS
         // =============================================
         document.getElementById('analyzeBtn').addEventListener('click', async () => {
             const data = {
@@ -1395,10 +1987,44 @@
             displayPartners();
         });
 
-        // =============================================
-        // 10. NAVIGATION
-        // =============================================
+        document.getElementById('roiBtn').addEventListener('click', () => {
+            const investment = parseFloat(document.getElementById('roiInvestment').value) || 85000000;
+            const savings = parseFloat(document.getElementById('roiSavings').value) || 1700000;
+            const yearlySavings = savings * 12;
+            const payback = investment / yearlySavings;
+            const roi5 = ((yearlySavings * 5 - investment) / investment) * 100;
+
+            document.getElementById('roiInvest').textContent = `Rp ${investment.toLocaleString()}`;
+            document.getElementById('roiSave').textContent = `Rp ${yearlySavings.toLocaleString()}`;
+            document.getElementById('roiPayback').textContent = `${payback.toFixed(1)} Tahun`;
+            document.getElementById('roiReturn').textContent = `${roi5.toFixed(0)}%`;
+            showToast(`📊 ROI: ${roi5.toFixed(0)}% dalam 5 tahun`);
+        });
+
+        document.getElementById('impactBtn').addEventListener('click', () => {
+            const type = document.getElementById('energyType').value;
+            const capacity = parseFloat(document.getElementById('energyCapacity').value) || 5;
+            const energy = energyDB[type] || energyDB.solar;
+            const co2 = energy.co2PerKw * capacity;
+            const energyKwh = capacity * 1700;
+            const trees = Math.round(co2 * 50);
+            let score = energy.score || 70;
+            if (capacity > 10) score += 5;
+            if (capacity < 2) score -= 5;
+            score = Math.min(Math.max(score, 0), 100);
+
+            document.getElementById('impactCO2').textContent = `${co2.toFixed(1)} Ton/th`;
+            document.getElementById('impactScore').textContent = `${score}/100`;
+            document.getElementById('impactEnergy').textContent = `${energyKwh.toLocaleString()} kWh/th`;
+            document.getElementById('impactTrees').textContent = `${trees} Pohon`;
+            showToast(`🌿 Dampak: ${co2.toFixed(1)} Ton CO₂/tahun`);
+        });
+
         document.getElementById('goToPartnerBtn').addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('[data-tab="tab-partner"]').classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.getElementById('tab-partner').classList.add('active');
             document.getElementById('partner').scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
@@ -1408,12 +2034,17 @@
         });
 
         // =============================================
-        // 11. INIT
+        // 14. INIT
         // =============================================
         displayPartners();
+        renderMahasiswa();
 
-        console.log('💰 EnerGreen AI — Hitung Keuntungan UMKM!');
-        console.log('✅ AI Renewable Advisor + Profit Calculator');
+        console.log('🌿 EnerGreen AI — 5 Fitur Lengkap!');
+        console.log('1️⃣ AI Renewable Advisor + Hitung Keuntungan');
+        console.log('2️⃣ Smart ROI Calculator');
+        console.log('3️⃣ Carbon Impact Tracker');
+        console.log('4️⃣ Green Energy Partner Hub');
+        console.log('5️⃣ Green Campus Collaborative (UMK + UNESA)');
         console.log('🇮🇩 Smart Decision, Green Transition.');
     </script>
 </body>

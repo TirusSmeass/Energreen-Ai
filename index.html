@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -191,7 +190,7 @@
             text-decoration: none;
             font-weight: 800;
             font-size: 1.5rem;
-            color: var(--text);
+            color: #fff;
         }
         .nav-brand i {
             font-size: 2rem;
@@ -199,6 +198,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .nav-brand span { color: #fff; }
         .nav-links {
             display: flex;
             align-items: center;
@@ -208,7 +208,7 @@
         }
         .nav-links a {
             text-decoration: none;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.85);
             font-weight: 500;
             font-size: 0.85rem;
             transition: color var(--transition);
@@ -224,7 +224,7 @@
             background: var(--gradient);
             transition: width var(--transition);
         }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover { color: #fff; }
         .nav-links a:hover::after { width: 100%; }
 
         .nav-actions {
@@ -233,7 +233,8 @@
             gap: 12px;
         }
         .theme-toggle {
-            background: var(--bg-card);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             width: 40px;
@@ -243,10 +244,10 @@
             justify-content: center;
             cursor: pointer;
             font-size: 1.1rem;
-            color: var(--text);
+            color: #fff;
             transition: all var(--transition);
         }
-        .theme-toggle:hover { background: var(--primary); color: #fff; }
+        .theme-toggle:hover { background: rgba(255, 255, 255, 0.3); }
 
         .hamburger {
             display: none;
@@ -261,75 +262,112 @@
             display: block;
             width: 26px;
             height: 2.5px;
-            background: var(--text);
+            background: #fff;
             border-radius: 4px;
             transition: all var(--transition);
         }
 
-        /* ========== HERO ========== */
+        /* ========== HERO DENGAN BACKGROUND IMAGE ========== */
         .hero {
-            padding: 120px 0 60px;
-            background: var(--gradient);
-            color: #fff;
+            padding: 140px 0 80px;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
-        .hero::before {
-            content: '';
+
+        /* BACKGROUND IMAGE */
+        .hero-bg {
             position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            animation: float 12s ease-in-out infinite;
+            inset: 0;
+            z-index: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMwMGI4OTQiLz48cGF0aCBkPSJNMjAgMjBoMTB2MTBIMjB6TTUwIDIwaDEwdjEwSDUweiIgZmlsbD0iIzAwY2VjOSIgb3BhY2l0eT0iMC4yIi8+PC9zdmc+');
+            background-size: 40px 40px;
+            background-color: #0a2a2a;
         }
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.05); }
+
+        /* OVERLAY GRADIENT REDUP AGAR TEKS TERBACA */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg, 
+                rgba(0, 0, 0, 0.70) 0%, 
+                rgba(0, 20, 20, 0.60) 40%,
+                rgba(0, 40, 40, 0.50) 70%,
+                rgba(0, 60, 60, 0.40) 100%
+            );
         }
+
+        /* DECORATIVE PATTERN OVERLAY */
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 184, 148, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 206, 201, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(9, 132, 227, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
         .hero .container {
             position: relative;
             z-index: 2;
             text-align: center;
             max-width: 900px;
+            margin: 0 auto;
         }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 10px;
             padding: 8px 20px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 100px;
             font-size: 0.85rem;
             font-weight: 500;
             margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
         }
         .hero-badge i { color: var(--primary-light); }
+
         .hero .tagline {
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--primary-light);
             margin-bottom: 10px;
             letter-spacing: 1px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
+
         .hero h1 {
             font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 900;
             line-height: 1.08;
             margin-bottom: 16px;
+            color: #fff;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.4);
         }
-        .hero h1 .highlight { color: var(--primary-light); }
+        .hero h1 .highlight { 
+            color: var(--primary-light);
+            text-shadow: 0 0 40px rgba(85, 239, 196, 0.2);
+        }
+
         .hero p {
             font-size: 1.05rem;
-            opacity: 0.9;
+            opacity: 0.92;
             max-width: 600px;
             line-height: 1.8;
             margin: 0 auto 24px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
+
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -341,8 +379,44 @@
             padding-top: 28px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .hero-stats div h3 { font-size: 1.8rem; font-weight: 800; }
-        .hero-stats div p { font-size: 0.8rem; opacity: 0.7; }
+        .hero-stats div h3 { 
+            font-size: 1.8rem; 
+            font-weight: 800; 
+            color: #fff;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        .hero-stats div p { 
+            font-size: 0.8rem; 
+            opacity: 0.7; 
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* FLOATING DECORATIVE ELEMENTS */
+        .float-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(85, 239, 196, 0.03);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .float-element:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: -100px;
+            animation: float 15s ease-in-out infinite;
+        }
+        .float-element:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: -80px;
+            left: -80px;
+            animation: float 20s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.05); }
+        }
 
         /* ========== TAB NAV ========== */
         .tab-nav {
@@ -955,6 +1029,7 @@
             .alur-flow { flex-direction: column; }
             .alur-arrow { transform: rotate(90deg); }
             .modal-card { margin: 16px; padding: 24px; }
+            .hero { padding: 120px 0 60px; min-height: auto; }
         }
         @media (max-width: 480px) {
             .partner-grid { grid-template-columns: 1fr; }
@@ -966,6 +1041,8 @@
             .demo-card { padding: 18px; }
             .modal-card { padding: 20px; }
             .modal-card .modal-actions { flex-direction: column; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-stats { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1031,7 +1108,7 @@
         <div class="container">
             <a href="#" class="nav-brand">
                 <i class="fas fa-leaf"></i>
-                EnerGreen AI
+                <span>EnerGreen AI</span>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#fitur">⚡ Fitur</a></li>
@@ -1052,8 +1129,21 @@
         </div>
     </nav>
 
-    <!-- ========== HERO ========== -->
+    <!-- ========== HERO DENGAN BACKGROUND IMAGE ========== -->
     <section class="hero" id="home">
+        <!-- BACKGROUND IMAGE -->
+        <div class="hero-bg" id="heroBg"></div>
+        
+        <!-- OVERLAY GRADIENT REDUP -->
+        <div class="hero-overlay"></div>
+        
+        <!-- DECORATIVE PATTERN -->
+        <div class="hero-pattern"></div>
+        
+        <!-- FLOATING ELEMENTS -->
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+
         <div class="container">
             <div class="hero-badge">
                 <i class="fas fa-sparkles"></i>
@@ -1349,7 +1439,6 @@
             <h2 class="section-title"><span>Green Campus</span> Collaborative</h2>
             <p class="section-desc">Mahasiswa sebagai Green Energy Ambassador — pendamping transformasi energi UMKM.</p>
 
-            <!-- Alur -->
             <div style="margin-top:20px;">
                 <h4 style="font-weight:700; font-size:1rem;">📋 Alur Pendampingan</h4>
                 <div class="alur-flow">
@@ -1365,11 +1454,9 @@
                 </div>
             </div>
 
-            <!-- Daftar Mahasiswa -->
             <h4 style="font-weight:700; font-size:1rem; margin-top:28px;">👨‍🎓 Green Energy Ambassador</h4>
             <div class="mahasiswa-grid" id="mahasiswaGrid"></div>
 
-            <!-- Peran Mahasiswa -->
             <div style="margin-top:28px;">
                 <h4 style="font-weight:700; font-size:1rem;">📖 Peran Mahasiswa</h4>
                 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-top:12px;">
@@ -1406,7 +1493,6 @@
                 </div>
             </div>
 
-            <!-- Gratis -->
             <div class="glass-card" style="margin-top:20px; background:rgba(108,92,231,0.05); border-color:var(--accent); text-align:center; padding:20px;">
                 <div style="font-size:2rem;">✅ GRATIS</div>
                 <div style="font-weight:700; font-size:1rem;">Program pendampingan dari kampus untuk masyarakat</div>
@@ -1543,7 +1629,6 @@
                 status: 'busy',
                 avatar: '👩‍🏫'
             },
-            // ===== UNIVERSITAS MURIA KUDUS =====
             {
                 id: 7,
                 name: 'Muhammad Rizki',
@@ -1564,7 +1649,6 @@
                 status: 'available',
                 avatar: '👩‍🎓'
             },
-            // ===== UNIVERSITAS NEGERI SURABAYA =====
             {
                 id: 9,
                 name: 'Andi Wijaya',

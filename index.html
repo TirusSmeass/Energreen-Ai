@@ -1548,9 +1548,9 @@
                 rating: 4.6, totalMentoring: 5, status: 'available', avatar: '👨‍🏫' },
             { id: 6, name: 'Nina Kusuma', univ: 'Universitas Padjadjaran', skills: ['Biogas', 'Lingkungan', 'Monitoring'],
                 rating: 4.8, totalMentoring: 8, status: 'busy', avatar: '👩‍🏫' },
-            { id: 7, name: 'Muhammad Rizki', univ: 'Universitas Muria Kudus', skills: ['PLTS', 'Analisis Energi', 'Edukasi'],
+            { id: 7, name: 'Muhammad Rizki', univ: 'Universitas Trunojoyo Madura', skills: ['PLTS', 'Analisis Energi', 'Edukasi'],
                 rating: 4.7, totalMentoring: 6, status: 'available', avatar: '👨‍🎓' },
-            { id: 8, name: 'Nur Aini', univ: 'Universitas Muria Kudus', skills: ['Biogas', 'Lingkungan', 'Konsultasi'],
+            { id: 8, name: 'Nur Aini', univ: 'Universitas Negeri Yogyakarta', skills: ['Biogas', 'Lingkungan', 'Konsultasi'],
                 rating: 4.6, totalMentoring: 4, status: 'available', avatar: '👩‍🎓' },
             { id: 9, name: 'Andi Wijaya', univ: 'Universitas Negeri Surabaya', skills: ['PLTS', 'IoT', 'Monitoring'],
                 rating: 4.8, totalMentoring: 10, status: 'available', avatar: '👨‍🎓' },
@@ -1926,9 +1926,9 @@
                 const statusText = m.status === 'available' ? '🟢 Tersedia' : '🔴 Sibuk';
                 const statusClass = m.status === 'available' ? 'available' : 'busy';
                 const stars = '★'.repeat(Math.floor(m.rating)) + (m.rating % 1 >= 0.5 ? '★' : '');
-                const isUMK = m.univ === 'Universitas Muria Kudus';
+                const isUTM = m.univ === 'Universitas Trunojoyo Madura';
                 const isUNESA = m.univ === 'Universitas Negeri Surabaya';
-                const badge = isUMK ? '🎓 UMK' : isUNESA ? '🎓 UNESA' : '';
+                const badge = isUTM ? '🎓 UTM' : isUNESA ? '🎓 UNESA' : '';
 
                 return `
                     <div class="mahasiswa-card glass-card">
@@ -2060,7 +2060,7 @@
         console.log('2️⃣ Smart ROI Calculator + Status Kelayakan Investasi');
         console.log('3️⃣ Carbon Impact Tracker');
         console.log('4️⃣ Green Energy Partner Hub');
-        console.log('5️⃣ Green Campus Collaborative (UMK + UNESA)');
+        console.log('5️⃣ Green Campus Collaborative (UTM + UNESA)');
         console.log('🇮🇩 Smart Decision, Green Transition.');
     </script>
 </body>
